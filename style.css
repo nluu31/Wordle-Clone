@@ -7,7 +7,7 @@ body {
 }
 
 p {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 header {
     margin-top: 5%;
@@ -40,7 +40,7 @@ header {
     border: 2px solid var(--empty);
     border-radius: 7px;
     margin: 4px;
-    color: white;
+    color: rgb(0, 81, 255);
     text-transform: uppercase;
     display: grid;
     place-items: center;

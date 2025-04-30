@@ -8,6 +8,8 @@ body {
 
 p {
     color: rgb(255, 255, 255);
+    /* Remove this later */
+    margin-top: -15px; 
 }
 header {
     margin-top: 5%;
@@ -48,3 +50,5 @@ header {
     font-size: 2.4rem;
     background-color: rgb(37, 37, 37);
   }
+
+  

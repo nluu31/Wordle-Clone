@@ -1,4 +1,4 @@
-const wordAnswer = "squid";
+const wordAnswer = "quidd";
 
 let row = 0;
 let col = 0;
@@ -48,6 +48,7 @@ function enterKey() {
             addLetter(key);
         }
         if (key == "Enter" && col == 5) {
+            reveal();
             update();
             row++;
             col = 0;
@@ -88,21 +89,44 @@ function test(curr) {
 }
 
 function update() {
-    const word = document.getElementById("currWord");
-    let answer = "";
-    for (let x = 0; x < 5; x++) {
-        const letter = document.getElementById("box" + row + x).textContent;
-        answer += letter;
-    }
+const word = document.getElementById("currWord");
+   let answer = fetchWord();
     if (answer == wordAnswer) {
         word.textContent = "WINNER!!!";
         // DO SOMETHING THAT STOPS THE GAME
     }
-    if (answer != wordAnswer && row == 5) {
+    else if (answer != wordAnswer && row == 5) {
         word.textContent = "GAME OVER, U SUCK";
         // DO SOMETHING THAT ENDS THE GAME
+    } else {
+        reveal();
+        alert(wordAnswer);
+    }
+}
+
+function reveal() {
+    let copy = wordAnswer.split('');
+    for (let i = 0; i < 5; i++) {
+        const currBox = document.getElementById("box" + row + i);
+        const currLetter = currBox.textContent;
+        if (currLetter == copy[i]) {
+            currBox.classList.add("right");
+            copy[i] = "0";
+        } else if (copy.includes(currLetter)) {
+            currBox.classList.add("partial");
+            copy[copy.indexOf(currLetter)] = "0";
+        }
     }
 
+}
+
+function fetchWord() {
+    let string = "";
+    for (let x = 0; x < 5; x++) {
+        const letter = document.getElementById("box" + row + x).textContent;
+        string += letter;
+    }
+    return string;
 }
 
 start();

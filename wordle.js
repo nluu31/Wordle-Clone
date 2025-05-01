@@ -1,5 +1,5 @@
-const numAnswer = Math.floor(Math.random()*100000);
-
+const numAnswer = 22868;
+// Math.floor(Math.random()*100000)
 
 let row = 0;
 let col = 0;
@@ -54,7 +54,7 @@ function enterKey() {
             col = 0;
 
             const curr = document.getElementById("box" + row + col);
-            test(curr);
+            hoveredGrid(curr);
         }
         document.getElementById("test").textContent = row + "," + col;
 
@@ -65,7 +65,7 @@ function addLetter(key) {
     if (col < 5 && row < 6) {
         const curr = document.getElementById("box" + row + col);
         curr.textContent = key;
-        test(curr);
+        hoveredGrid(curr);
         col++;
     }
 }
@@ -75,12 +75,12 @@ function deleteLetter() {
     }
     const curr = document.getElementById("box" + row + col);
     curr.textContent = '';
-    test(curr);
+    hoveredGrid(curr);
 }
 
 
 
-function test(curr) {
+function hoveredGrid(curr) {
     const boxes = document.querySelectorAll('.box');
     boxes.forEach(box => {
         box.style.backgroundColor = '';
@@ -93,11 +93,11 @@ const word = document.getElementById("currWord");
    let answer = fetchWord();
     if (answer == numAnswer) {
         word.textContent = "WINNER!!!";
-        // DO SOMETHING THAT STOPS THE GAME
+        reset();
     }
     else if (answer != numAnswer && row == 5) {
         word.textContent = "GAME OVER, U SUCK";
-        // DO SOMETHING THAT ENDS THE GAME
+        reset();
     } else {
         reveal();
         alert(numAnswer);
@@ -112,12 +112,19 @@ function reveal() {
         if (currLetter == copy[i]) {
             currBox.classList.add("right");
             copy[i] = "a";
-        } else if (copy.includes(currLetter)) {
-            currBox.classList.add("partial");
-            copy[copy.indexOf(currLetter)] = "a";
+        } 
+    }
+    for (let i = 0; i < 5; i++) {
+        const currBox = document.getElementById("box" + row + i);
+        const currLetter = currBox.textContent;
+        if (copy.includes(currLetter)) {
+            if (!currBox.classList.contains("right")) {
+                currBox.classList.add("partial");
+                copy[copy.indexOf(currLetter)] = "a";
+            }
+            
         }
     }
-
 }
 
 function fetchWord() {
@@ -128,6 +135,23 @@ function fetchWord() {
     }
     return string;
 }
+
+function reset() {
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.classList.remove('right', 'partial');
+        box.style.backgroundColor = '';
+        box.textContent = '';
+        row = -1;
+        col = 0;
+    })
+}
+
+function show() {
+    const show = document.getElementById("answer");
+    show.textContent = numAnswer.toString();
+}
+show();
 
 start();
 enterKey();

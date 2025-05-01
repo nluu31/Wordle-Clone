@@ -1,4 +1,5 @@
-const wordAnswer = "quidd";
+const numAnswer = Math.floor(Math.random()*100000);
+
 
 let row = 0;
 let col = 0;
@@ -6,7 +7,8 @@ let gameOver = false;
 
 
 const alpha = [
-    '0', '1', 
+    '0', '1', '2', '3', '4', '5', 
+    '6', '7', '8', '9'
 ];
 
 function makeBox(container, row, col) {
@@ -89,30 +91,30 @@ function test(curr) {
 function update() {
 const word = document.getElementById("currWord");
    let answer = fetchWord();
-    if (answer == wordAnswer) {
+    if (answer == numAnswer) {
         word.textContent = "WINNER!!!";
         // DO SOMETHING THAT STOPS THE GAME
     }
-    else if (answer != wordAnswer && row == 5) {
+    else if (answer != numAnswer && row == 5) {
         word.textContent = "GAME OVER, U SUCK";
         // DO SOMETHING THAT ENDS THE GAME
     } else {
         reveal();
-        alert(wordAnswer);
+        alert(numAnswer);
     }
 }
 
 function reveal() {
-    let copy = wordAnswer.split('');
+    let copy = numAnswer.toString().split('');
     for (let i = 0; i < 5; i++) {
         const currBox = document.getElementById("box" + row + i);
         const currLetter = currBox.textContent;
         if (currLetter == copy[i]) {
             currBox.classList.add("right");
-            copy[i] = "0";
+            copy[i] = "a";
         } else if (copy.includes(currLetter)) {
             currBox.classList.add("partial");
-            copy[copy.indexOf(currLetter)] = "0";
+            copy[copy.indexOf(currLetter)] = "a";
         }
     }
 

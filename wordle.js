@@ -1,11 +1,13 @@
-const numAnswer =  Math.floor(Math.random()*100000);
-
+let numAnswer =  Math.floor(Math.random() * 100000);
+while (numAnswer < 10000) {
+    numAnswer = numAnswer * 10;
+};
 
 let row = 0;
 let col = 0;
 let gameOver = false;
 
-// FIX BUG WITH NON FULL NUMBERS
+
 const alpha = [
     '0', '1', '2', '3', '4', '5', 
     '6', '7', '8', '9'
@@ -39,7 +41,11 @@ function start() {
 }
 
 function enterKey() {
+   
     document.body.onkeydown = (e) => {
+        if (gameOver) {
+            return;
+        }
         const key = e.key;
 
         if (key == "Backspace") {
@@ -93,12 +99,14 @@ const word = document.getElementById("currWord");
    let answer = fetchWord();
     if (answer == numAnswer) {
         showWinLose("winner");
+        gameOver = true;
     }
     else if (answer != numAnswer && row == 5) {
         showWinLose("loser");
+        revealNumber();
+        gameOver = true;
     } else {
         reveal();
-        alert(numAnswer);
     }
 }
 
@@ -145,10 +153,7 @@ function reset() {
     })
 }
 
-function show() {
-    const show = document.getElementById("answer");
-    show.textContent = numAnswer.toString();
-}
+
 
 function showWinLose(id) {
     const winDiv = document.getElementById(id);
@@ -159,11 +164,16 @@ function closeWinLose(id) {
     winDiv.style.display = "none";
 }
 
+function revealNumber() {
+    const winDiv = document.getElementById("loseText");
+    winDiv.innerText =  "The Number was " + numAnswer;
+
+}
 
 
 
 
-show();
+
 start();
 enterKey();
 

@@ -76,13 +76,14 @@ hr {
     justify-content: center;
     align-items: start;
     display: none;
+    overflow: hidden;
   }
 
   #winner p, #loser p{
     margin-top: 30px;
     display: flex;
-    align-items: center;      /* Vertical alignment */
-    justify-content: center;  /* Horizontal alignment */
+    align-items: center;      
+    justify-content: center;  
     text-align: center;
   }
   #loser img {

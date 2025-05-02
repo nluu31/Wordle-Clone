@@ -7,7 +7,6 @@
         <h1> Numdle </h1>
         <hr>
     </header>
-    <p id="currWord"> test </p>
     <div id="winner">
         <button onclick="closeWinLose('winner')"> ❌ </button>
         <p id="myPara"> 🥳 Congrats you won! 🥳</p>
@@ -16,12 +15,13 @@
     </div>
     <div id="loser">
         <button onclick="closeWinLose('loser')"> ❌ </button>
-        <p id="myPara"> 😓 NOOOO you lost! 😓</p>
-        <p> booooo, try again next time :( </p>
+        <p> 😓 NOOOO you lost! 😓</p>
+        <p > booooo, try again next time :( </p>
+        <p id="loseText"></p>
         <img src="images/ditto-lose.gif" alt="pokemon-los"> </img>
     </div>
     <div id="game"></div>
-    <p id="answer"> </p>
+
     <script src="wordle.js"> </script>
     
 </body>

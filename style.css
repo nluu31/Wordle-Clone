@@ -1,5 +1,7 @@
 
-
+* {
+    transition: 0.5s ease;
+}
 body {
     background-color:rgb(55, 59, 68);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -66,7 +68,8 @@ hr {
   #winner, #loser {
     background-color:black;
     width: 90%;
-    height: 50%;
+    height: 80%;
+    margin-top: 80px;
     text-align: center;
     border-radius: 50px;
     position:fixed;
@@ -93,8 +96,33 @@ hr {
     margin: 20px auto 0;
     display: block;
   }
+  #reset{
+    margin-top: 150px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    background-color: royalblue;
+    transition: 0.5s ease;
+    font-weight: 600;
+    color: white;
+    font-size: 17px;
+  }
 
-  #winner button, #loser button {
+  #reset:hover {
+    
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  #winner hr, #loser hr {
+    margin-top: 5%;
+    width: 300px;
+  }
+
+  #winner #close, #loser #close {
     right: 5%;
     top: 5%;
     position: absolute;
@@ -103,12 +131,8 @@ hr {
     border: none;
     transition: 0.3s ease;
   }
-  #winner button:hover, #loser button:hover {
-    right: 5%;
-    top: 5%;
-    position: absolute;
-    background: rgb(55, 59, 68);
-    border: none;
+  #winner #close:hover, #loser #close:hover {
+    background: rgb(255, 255, 255);
   }
 
  

@@ -1,4 +1,4 @@
-let numAnswer =  Math.floor(Math.random() * 100000);
+let numAnswer = Math.floor(Math.random() * 100000);
 while (numAnswer < 10000) {
     numAnswer = numAnswer * 10;
 };
@@ -9,7 +9,7 @@ let gameOver = false;
 
 
 const alpha = [
-    '0', '1', '2', '3', '4', '5', 
+    '0', '1', '2', '3', '4', '5',
     '6', '7', '8', '9'
 ];
 
@@ -41,7 +41,7 @@ function start() {
 }
 
 function enterKey() {
-   
+
     document.body.onkeydown = (e) => {
         if (gameOver) {
             return;
@@ -95,8 +95,8 @@ function hoveredGrid(curr) {
 }
 
 function update() {
-const word = document.getElementById("currWord");
-   let answer = fetchWord();
+    const word = document.getElementById("currWord");
+    let answer = fetchWord();
     if (answer == numAnswer) {
         showWinLose("winner");
         gameOver = true;
@@ -118,7 +118,7 @@ function reveal() {
         if (currLetter == copy[i]) {
             currBox.classList.add("right");
             copy[i] = "a";
-        } 
+        }
     }
     for (let i = 0; i < 5; i++) {
         const currBox = document.getElementById("box" + row + i);
@@ -128,7 +128,7 @@ function reveal() {
                 currBox.classList.add("partial");
                 copy[copy.indexOf(currLetter)] = "a";
             }
-            
+
         }
     }
 }
@@ -166,8 +166,21 @@ function closeWinLose(id) {
 
 function revealNumber() {
     const winDiv = document.getElementById("loseText");
-    winDiv.innerText =  "The Number was " + numAnswer;
+    winDiv.innerText = "The Number was " + numAnswer;
+}
 
+function resetGame() {
+    reset();
+    col = 0;
+    row = 0;
+    gameOver = false;
+    numAnswer = Math.floor(Math.random() * 100000);
+    while (numAnswer < 10000) {
+        numAnswer = numAnswer * 10;
+    };
+    closeWinLose("winner");
+    closeWinLose("loser");
+    
 }
 
 

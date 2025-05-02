@@ -8,19 +8,24 @@
         <hr>
     </header>
     <div id="winner">
-        <button onclick="closeWinLose('winner')"> ❌ </button>
+        <button id = "close" onclick="closeWinLose('winner')"> ❌ </button>
         <p id="myPara"> 🥳 Congrats you won! 🥳</p>
         <p> RAHHHHHHHHH </p>
-        <img src="images/squirtle-celebrate.gif" alt="pokemon-win"> </img>
+        <img src="images/squirtle-celebrate.gif" alt="pokemon-win"> </img> 
+        <hr>
+        <button id ="reset" onclick="resetGame()"> Play again! </button>
     </div>
     <div id="loser">
-        <button onclick="closeWinLose('loser')"> ❌ </button>
+        <button id="close" onclick="closeWinLose('loser')"> ❌ </button>
         <p> 😓 NOOOO you lost! 😓</p>
         <p > booooo, try again next time :( </p>
         <p id="loseText"></p>
         <img src="images/ditto-lose.gif" alt="pokemon-los"> </img>
+        <hr>
+        <button id ="reset" onclick="resetGame()"> Play again! </button>
     </div>
     <div id="game"></div>
+    
 
     <script src="wordle.js"> </script>
     

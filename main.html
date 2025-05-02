@@ -9,20 +9,20 @@
     </header>
     <p id="currWord"> test </p>
     <div id="winner">
-        <button onclick=closeWinner()> ❌ </button>
-        <p> 🥳 Congrats you won! 🥳</p>
+        <button onclick="closeWinLose('winner')"> ❌ </button>
+        <p id="myPara"> 🥳 Congrats you won! 🥳</p>
         <p> RAHHHHHHHHH </p>
-        <img src="images/squirtle-celebrate.gif" alt="pokemon"> </img>
-        
-        
+        <img src="images/squirtle-celebrate.gif" alt="pokemon-win"> </img>
+    </div>
+    <div id="loser">
+        <button onclick="closeWinLose('loser')"> ❌ </button>
+        <p id="myPara"> 😓 NOOOO you lost! 😓</p>
+        <p> booooo, try again next time :( </p>
+        <img src="images/ditto-lose.gif" alt="pokemon-los"> </img>
     </div>
     <div id="game"></div>
-    
-    <script src="wordle.js" type="module"> </script>
     <p id="answer"> </p>
+    <script src="wordle.js"> </script>
+    
 </body>
-<footer>
-
-</footer>
-
 </html>

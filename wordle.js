@@ -92,12 +92,10 @@ function update() {
 const word = document.getElementById("currWord");
    let answer = fetchWord();
     if (answer == numAnswer) {
-        word.textContent = "WINNER!!!";
-        // change to winner screen
+        showWinLose("winner");
     }
     else if (answer != numAnswer && row == 5) {
-        word.textContent = "GAME OVER, U SUCK";
-        // reset(); change to screen
+        showWinLose("loser");
     } else {
         reveal();
         alert(numAnswer);
@@ -152,16 +150,20 @@ function show() {
     show.textContent = numAnswer.toString();
 }
 
-function showWinner() {
-    const winDiv = document.getElementById("winner");
-    winDiv.display = "block";
+function showWinLose(id) {
+    const winDiv = document.getElementById(id);
+    winDiv.style.display = "block";
 }
-function closeWinner() {
-    const winDiv = document.getElementById("winner");
-    winDiv.display = "none";
+function closeWinLose(id) {
+    const winDiv = document.getElementById(id);
+    winDiv.style.display = "none";
 }
-show();
 
+
+
+
+
+show();
 start();
 enterKey();
 

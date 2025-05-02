@@ -1,11 +1,11 @@
-const numAnswer = 22868;
-// Math.floor(Math.random()*100000)
+const numAnswer =  Math.floor(Math.random()*100000);
+
 
 let row = 0;
 let col = 0;
 let gameOver = false;
 
-
+// FIX BUG WITH NON FULL NUMBERS
 const alpha = [
     '0', '1', '2', '3', '4', '5', 
     '6', '7', '8', '9'
@@ -93,11 +93,11 @@ const word = document.getElementById("currWord");
    let answer = fetchWord();
     if (answer == numAnswer) {
         word.textContent = "WINNER!!!";
-        reset();
+        // change to winner screen
     }
     else if (answer != numAnswer && row == 5) {
         word.textContent = "GAME OVER, U SUCK";
-        reset();
+        // reset(); change to screen
     } else {
         reveal();
         alert(numAnswer);
@@ -150,6 +150,15 @@ function reset() {
 function show() {
     const show = document.getElementById("answer");
     show.textContent = numAnswer.toString();
+}
+
+function showWinner() {
+    const winDiv = document.getElementById("winner");
+    winDiv.display = "block";
+}
+function closeWinner() {
+    const winDiv = document.getElementById("winner");
+    winDiv.display = "none";
 }
 show();
 

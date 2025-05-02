@@ -12,16 +12,20 @@ p {
     margin-top: -15px; 
 }
 header {
-    margin-top: 5%;
+    margin-top: 1%;
     text-align: center;
     color: white;
   
+}
+hr {
+    margin-top: -1%;
+    width: 50%;
 }
 #game {
     display: flex;
     justify-content: center;
     align-items: start;
-    margin-top: 5rem;
+    margin-top: 3rem;
     width: 100%;
     height: 72vh;
     
@@ -57,6 +61,50 @@ header {
   }
   .box.partial {
     background-color: orange;
+  }
+
+  #winner {
+    background-color:black;
+    width: 90%;
+    height: 50%;
+    text-align: center;
+    border-radius: 50px;
+    position:fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: start;
+    display:block;
+
+  }
+
+  #winner p{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;      /* Vertical alignment */
+    justify-content: center;  /* Horizontal alignment */
+    text-align: center;
+
+  }
+
+  #winner button {
+    right: 5%;
+    top: 5%;
+    position: absolute;
+    color: white;
+    background: none;
+    border: none;
+    transition: 0.1s ease;
+  }
+  #winner button:hover {
+    right: 5%;
+    top: 5%;
+    position: absolute;
+    color: white;
+    background: white;
+    border: none;
+    transition: 0.1s ease;
   }
 
   

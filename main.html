@@ -1,17 +1,28 @@
 <html>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport"  content="width=device-width, initial-scale=1.0"> 
-    <body>
-        <header>
-            <h1> Numdle </h1>
-            <hr>
-        </header>
-        <p id ="currWord"> test </p>
-        <div id="game"></div>
-        <script src="wordle.js" type="module"> </script>
-        <p id ="answer"> </p>
-     </body>
-    <footer>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+    <header>
+        <h1> Numdle </h1>
+        <hr>
+    </header>
+    <p id="currWord"> test </p>
+    <div id="winner">
+        <button onclick=closeWinner()> ❌ </button>
+        <p> 🥳 Congrats you won! 🥳</p>
+        <p> RAHHHHHHHHH </p>
+        <img src="images/squirtle-celebrate.gif" alt="pokemon"> </img>
         
-    </footer>
+        
+    </div>
+    <div id="game"></div>
+    
+    <script src="wordle.js" type="module"> </script>
+    <p id="answer"> </p>
+</body>
+<footer>
+
+</footer>
+
 </html>

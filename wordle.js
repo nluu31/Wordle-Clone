@@ -6,7 +6,7 @@ while (numAnswer < 10000) {
 let row = 0;
 let col = 0;
 let gameOver = false;
-
+let winStreak = 0;
 
 const alpha = [
     '0', '1', '2', '3', '4', '5',
@@ -100,11 +100,15 @@ function update() {
     if (answer == numAnswer) {
         showWinLose("winner");
         gameOver = true;
+        winStreak++;
+        updateStreak();
     }
     else if (answer != numAnswer && row == 5) {
         showWinLose("loser");
         revealNumber();
         gameOver = true;
+        winStreak = 0;
+        updateStreak();
     } else {
         reveal();
     }
@@ -158,6 +162,7 @@ function reset() {
 function showWinLose(id) {
     const winDiv = document.getElementById(id);
     winDiv.style.display = "block";
+    
 }
 function closeWinLose(id) {
     const winDiv = document.getElementById(id);
@@ -180,8 +185,14 @@ function resetGame() {
     };
     closeWinLose("winner");
     closeWinLose("loser");
-    
 }
+
+function updateStreak() {
+    const score = document.getElementById("winstreak");
+    score.textContent = winStreak;
+}
+
+
 
 
 

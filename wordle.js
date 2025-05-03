@@ -38,6 +38,34 @@ function makeGrid(container) {
 function start() {
     const game = document.getElementById("game");
     makeGrid(game);
+
+    const mobileInput = document.getElementById("mobileInput");
+    mobileInput.focus();
+
+    mobileInput.addEventListener("input", () => {
+        const value = mobileInput.value;
+
+        if (value.length > col && col < 5) {
+            const key = value[value.length - 1];
+            if (alpha.includes(key)) {
+                addLetter(key);
+            }
+        } else if (value.length < col) {
+            deleteLetter();
+        }
+
+        if (value.length === 5 && !gameOver) {
+            reveal();
+            update();
+            row++;
+            col = 0;
+            mobileInput.value = "";
+            if (row < 5) {
+                const curr = document.getElementById("box" + row + col);
+                hoveredGrid(curr);
+            }
+        }
+    });
 }
 
 function enterKey() {
@@ -156,8 +184,6 @@ function reset() {
         col = 0;
     })
 }
-
-
 
 function showWinLose(id) {
     const winDiv = document.getElementById(id);

@@ -27,7 +27,7 @@ function makeGrid(container) {
     const grid = document.createElement("div");
     grid.className = "grid";
 
-    for (let x = 0; x < 6; x++) {
+    for (let x = 0; x < 5; x++) {
         for (let y = 0; y < 5; y++) {
             makeBox(grid, x, y);
         }
@@ -68,7 +68,7 @@ function enterKey() {
 }
 
 function addLetter(key) {
-    if (col < 5 && row < 6) {
+    if (col < 5 && row < 5) {
         const curr = document.getElementById("box" + row + col);
         curr.textContent = key;
         hoveredGrid(curr);
@@ -103,7 +103,7 @@ function update() {
         winStreak++;
         updateStreak();
     }
-    else if (answer != numAnswer && row == 5) {
+    else if (answer != numAnswer && row == 4) {
         showWinLose("loser");
         revealNumber();
         gameOver = true;
